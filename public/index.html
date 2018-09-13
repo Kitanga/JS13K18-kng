@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Papers, Please</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div id="game">
+        <div id="manual">
+            <div class="closer btn" data-handler="manual">X</div>
+            <fieldset>
+                <legend>Manual</legend>
+
+                <h2>Packet</h2>
+                <div class="field-details">
+                    <div class="field-name">IP</div>
+                    <div class="allowed">IP not on the blocking list</div>
+                    <div class="curious"></div>
+                    <div class="blocked">IP on the blocking list</div>
+                </div>
+                <div class="field-details">
+                    <div class="field-name">Origin</div>
+                    <div class="allowed">Country not on the origin list</div>
+                    <div class="curious"></div>
+                    <div class="blocked">Country on the origin list</div>
+                </div>
+                <div class="field-details">
+                    <div class="field-name">Data Types</div>
+                    <div class="allowed">any thing that isn't in the curious or blocked fields</div>
+                    <div class="curious">32 bytes of data</div>
+                    <div class="blocked">VOIP, Encrypted Data</div>
+                </div>
+                <div class="field-details">
+                    <div class="field-name">HTTP</div>
+                    <div class="allowed">same as destination flag</div>
+                    <div class="curious"></div>
+                    <div class="blocked">not the same as destination flag</div>
+                </div>
+                <h2>Scanning</h2>
+                Press on one of the fields if it states that it's "Unknown data".
+
+                <h2>Actions</h2>
+                Allow: Let the packet through<br> Block Once: It's in the name<br> Block: Block forever!
+            </fieldset>
+        </div>
+        <div class="ui">
+            <div class="mute-btn" data-handler=""><span>&#128266;</span><span class="hidden">&#128263;</span></div>
+            <div class="pause-btn" data-handler=""><span class="hidden">&#10074;</span><span>&#10073;&#10073;</span></div>
+        </div>
+        <fieldset class="packet-info">
+            <legend>Packet</legend>
+            <fieldset class="details origin">
+                <legend>Origin</legend>
+                <div class="packet-details">
+                    <div class="ip detail" data-handler="ip"><span>IP</span>:<span class="value"></span></div>
+                    <div class="origin detail" data-handler="origin"><span>Origin</span>:<span class="value"></span></div>
+                    <div class="data detail" data-handler="data"><span>Data Types</span>:<span class="value"></span></div>
+                    <div class="http detail" data-handler="http"><span>HTTP</span>:<span class="value"></span></div>
+                </div>
+            </fieldset>
+            <fieldset class="details destination">
+                <legend>Destination</legend>
+                <div class="packet-details">
+                    <div class="ip detail" data-handler="ip2"><span>IP</span>:<span class="value"></span></div>
+                    <div class="origin detail" data-handler="origin2"><span>Origin</span>:<span class="value"></span></div>
+                    <div class="http detail" data-handler="http2"><span>HTTP</span>:<span class="value"></span></div>
+                </div>
+            </fieldset>
+        </fieldset>
+        <div class="action">
+            <div class="allow btn" data-handler="allow"><img src="img/allow.gif" alt=""><span>Allow</span></div>
+            <div class="disallow btn" data-handler="disallow"><img src="img/disallow.gif" alt=""><span>Block Once</span></div>
+            <div class="block btn" data-handler="block"><img src="img/block.gif" alt=""><span>Block</span></div>
+        </div>
+        <div class="manual">
+            <div class="btn" data-handler="manual"><span>Manual</span><img src="img/book.gif" alt=""></div>
+        </div>
+    </div>
+    <script src="js/main.js" type="module"></script>
+</body>
+
+</html>
