@@ -16,18 +16,48 @@ html, body {
     padding: 0;
     color: var(--primary);
     background-color: var(--secodary);
+    user-select: none;
+}
+
+.packet-details .detail {
+    cursor: help !important;
+}
+.processing .packet-details .detail {
+    cursor: wait !important;
+}
+
+body.processing {
+    cursor: wait !important;
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 img {
     transform: scale(5);
-    image-rendering: crisp-edges;
+
+    image-rendering: -webkit-optimize-contrast;
+    -ms-interpolation-mode: nearest-neighbor;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-crisp-edges;
     image-rendering: pixelated;
+    image-rendering: crisp-edges;
 
     /* image-rendering: moz; */
+}
+
+#loader {
+    position: absolute;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--secodary);
 }
 
 /* Game stuffs */
@@ -48,10 +78,18 @@ img {
 .ui {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+
+.controls {
+    width: 50%;
+    display: flex;
+    align-items: center;
     justify-content: flex-end;
 }
 
-.ui > div {
+.controls > div {
     float: left;
     width: 17%;
     text-align: right;
@@ -60,8 +98,31 @@ img {
     color: white;
 }
 
+.social {
+    color: var(--primary);
+}
+.social a {
+    text-decoration: none;
+    color: white;
+}
+
+.menu-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+
+    /* width: 100%; */
+    height: 100%;
+    background-color: var(--secodary);
+}
+
 fieldset {
     border: 1px solid var(--primary);
+}
+
+.packet-info {
+    margin-bottom: 25px;
 }
 
 .packet-info .details {
@@ -71,8 +132,6 @@ fieldset {
 
 .packet-info .packet-details .detail {
     margin-bottom: 17px;
-
-    /* cursor: pointer; */
 }
 
 .packet-info .packet-details span {
@@ -89,11 +148,10 @@ fieldset {
     background-color: transparent;
 }
 
-
 .action {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .action .btn {
@@ -121,6 +179,7 @@ fieldset {
 
 .manual .btn :first-child {
     margin-bottom: 20px;
+
     /* clear:both; */
 }
 
@@ -128,22 +187,31 @@ fieldset {
     color: white;
 }
 
-.ui span,
+.controls span,
 .packet-info .packet-details .detail,
-.btn {
+.btn,
+.menu-container {
     cursor: pointer;
 }
 
 #manual {
     background-color: var(--secodary);
-    /* display: none; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
+
     /* width: 100%; */
     height: 100%;
     z-index: 10;
 }
 
+#manual fieldset {
+    position: relative;
+}
+
 #manual .closer {
+    font-family: sans-serif;
     position: absolute;
     right: 0;
     top: 0;
@@ -154,4 +222,5 @@ fieldset {
 #manual h2 {
     color: white;
     text-decoration: underline;
+    font-size: 1em;
 }
